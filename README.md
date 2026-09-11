@@ -29,15 +29,46 @@ The core objective is to evaluate diagnostic accuracy and model faithfulness by 
   - Val: 2,273 images (`COVID`: 542 | `Normal`: 1,529 | `Viral Pneumonia`: 202)
   - Test: 2,273 images (`COVID`: 543 | `Normal`: 1,529 | `Viral Pneumonia`: 201)
 
-## Usage
-### 1. Run Offline Preprocessing
-```bash
-python scripts/preprocess_dataset.py
-```
-Outputs the preprocessed images and aligned masks into `dataset_processed/`.
+## Getting Started
 
-### 2. Verify Preprocessed Data
+### Prerequisites: Install `uv` (Recommended)
+`uv` is an ultra-fast Python package manager that manages Python versions, virtual environments, and dependencies automatically.
+
+- **Windows (PowerShell)**:
+  ```powershell
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+- **macOS / Linux**:
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
+---
+
+### Running with `uv` (Zero-Config)
+Once `uv` is installed and the repository is cloned:
+
 ```bash
+# 1. Run preprocessing (uv automatically provisions the environment and dependencies)
+uv run python scripts/preprocess_dataset.py
+
+# 2. Verify preprocessed data & generate quality inspection collage
+uv run python scripts/verify_preprocessing.py
+```
+
+> **GPU Acceleration (Optional)**: If you have an NVIDIA GPU and want CUDA acceleration for PyTorch:
+> ```bash
+> uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+> ```
+
+---
+
+### Alternative: Standard Python & `venv`
+```bash
+python -m venv venv
+# On Windows: venv\Scripts\activate | On macOS/Linux: source venv/bin/activate
+pip install -r requirements.txt
+python scripts/preprocess_dataset.py
 python scripts/verify_preprocessing.py
 ```
-Validates file integrity and generates visual comparison grids.
+
