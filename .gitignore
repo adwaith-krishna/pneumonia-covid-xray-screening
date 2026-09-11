@@ -1,0 +1,21 @@
+# Datasets (Raw & Preprocessed)
+COVID-19_Radiography_Dataset/
+dataset_processed/
+*.xlsx
+*.csv
+
+# Python cache & environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+ENV/
+
+# IDE & system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
