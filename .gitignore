@@ -20,3 +20,12 @@ ENV/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Model Checkpoints & Training Runs
+checkpoints/
+weights/
+runs/
+*.pt
+*.pth
+*.onnx
+
