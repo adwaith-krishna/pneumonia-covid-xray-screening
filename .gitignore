@@ -1,8 +1,10 @@
 # Datasets (Raw & Preprocessed)
 COVID-19_Radiography_Dataset/
+COVID-19_Radiography_Dataset.zip
 dataset_processed/
 *.xlsx
 *.csv
+*.zip
 
 # Python cache & environments
 __pycache__/
